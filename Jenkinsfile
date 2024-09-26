@@ -19,7 +19,8 @@ pipeline {
             steps {
                 sh 'ls -al'
                 sh '''
-                ansible-playbook -i ./roles/my_elasticsearch_role/aws_ec2.yml ./roles/my_elasticsearch_role/playbook.yml
+                // ansible-playbook -i ./roles/my_elasticsearch_role/aws_ec2.yml ./roles/my_elasticsearch_role/playbook.yml
+                ansible-playbook  -i aws_ec2.yaml playbook.yml
                 '''
             }
         }
