@@ -1,0 +1,1 @@
+# elasticserachrole-pipeline-dynamic
