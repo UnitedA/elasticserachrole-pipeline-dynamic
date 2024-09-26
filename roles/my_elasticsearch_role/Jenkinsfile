@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/Priyanshu498/tomcat-deploy.git'
+                git branch: 'main', url: 'https://github.com/UnitedA/elasticserachrole-pipeline-dynamic.git'
             }
         }
         stage('Install Ansible and AWS dependencies') {
@@ -19,7 +19,7 @@ pipeline {
             steps {
                 sh 'ls -al'
                 sh '''
-                ansible-playbook -i ./tomcat-Role/tomcat/aws_ec2.yml ./tomcat-Role/tomcat/playbook.yml
+                ansible-playbook -i ./roles/my_elasticsearch_role/aws_ec2.yml ./roles/my_elasticsearch_role/playbook.yml
                 '''
             }
         }
