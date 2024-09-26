@@ -6,15 +6,15 @@ pipeline {
                 git branch: 'main', url: 'https://github.com/UnitedA/elasticserachrole-pipeline-dynamic.git'
             }
         }
-        stage('Install Ansible and AWS dependencies') {
-            steps {
-                sh '''
-                sudo apt update
-                sudo apt install ansible python3-pip -y
-                pip install boto3 --break-system-packages
-                '''
-            }
-        }
+        // stage('Install Ansible and AWS dependencies') {
+        //     steps {
+        //         sh '''
+        //         sudo apt update
+        //         sudo apt install ansible python3-pip -y
+        //         pip install boto3 --break-system-packages
+        //         '''
+        //     }
+        // }
         stage('Run Ansible Playbook') {
             steps {
                 sh 'ls -al'
