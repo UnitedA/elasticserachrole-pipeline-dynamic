@@ -6,6 +6,6 @@
     - vars/main.yml
 
   roles:
-    # - my_elasticsearch_role
-    -role: roles/my_elasticsearch_role
+    - role: roles/my_elasticsearch_role
+
     
