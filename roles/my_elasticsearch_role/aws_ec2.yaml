@@ -6,3 +6,4 @@ filters:
 keyed_groups:
   - key: tags.Name
     prefix: tag
+host_key_checking: false  # Disable host key checking to prevent issues
