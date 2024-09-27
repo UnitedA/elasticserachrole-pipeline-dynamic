@@ -29,6 +29,11 @@ pipeline {
             steps {
                 // List files in the workspace to check if everything is in place
                 sh 'ls -al'
+                
+                // Change permissions of the private key
+                sh '''
+                chmod 400 /var/lib/jenkins/workspace/es_pipeline/infra_key.pem
+                '''
 
                 // Run the Ansible playbook with the specified private key and inventory file
                 sh '''
