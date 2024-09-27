@@ -8,4 +8,4 @@ keyed_groups:
     prefix: tag
 host_key_checking: false
 hostnames:
-  - public-ip  # This will retrieve the current public IP at runtime
+  - network-interface.addresses.association.public-ip  # Use the correct field for public IP
