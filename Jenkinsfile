@@ -19,8 +19,8 @@ pipeline {
             steps {
                 sh 'ls -al'
                 sh '''
-                 ansible-playbook -i ./roles/my_elasticsearch_role/aws_ec2.yaml ./roles/my_elasticsearch_role/playbook.yml --private-key /var/lib/jenkins/workspace/es_pipeline/infra_key.pem
-
+                 ansible-playbook -i ./roles/my_elasticsearch_role/aws_ec2.yaml ./roles/my_elasticsearch_role/playbook.yml --private-key /var/lib/jenkins/workspace/es_pipeline/infra_key.pem -e "ansible_ssh_host_key_checking=False"
+                 
                 '''
             }
         }
