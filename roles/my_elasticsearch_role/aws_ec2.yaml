@@ -6,4 +6,6 @@ filters:
 keyed_groups:
   - key: tags.Name
     prefix: tag
-host_key_checking: false  # Disable host key checking to prevent issues
+host_key_checking: false
+hostnames:
+  - public-ip  # This will retrieve the current public IP at runtime
