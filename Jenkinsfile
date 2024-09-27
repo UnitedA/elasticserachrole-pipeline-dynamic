@@ -32,7 +32,7 @@ pipeline {
 
                 // Run the Ansible playbook with the specified private key and inventory file
                 sh '''
-                sudo ansible-playbook -i ./roles/my_elasticsearch_role/aws_ec2.yaml \
+                 ansible-playbook -i ./roles/my_elasticsearch_role/aws_ec2.yaml \
                 ./roles/my_elasticsearch_role/playbook.yml \
                 --private-key /var/lib/jenkins/workspace/es_pipeline/infra_key.pem
                 '''
