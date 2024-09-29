@@ -12,34 +12,25 @@ pipeline {
             }
         }
 
-        // Uncomment if you need to install Ansible and AWS dependencies on the Jenkins node
-        /*
-        stage('Install Ansible and AWS dependencies') {
-            steps {
-                sh '''
-                sudo apt update
-                sudo apt install ansible python3-pip -y
-                pip install boto3 --break-system-packages
-                '''
-            }
-        }
-        */
-
-        stage('Run Ansible Playbook') {
+        stage('Prepare Environment') {
             steps {
                 // List files in the workspace to check if everything is in place
                 sh 'ls -al'
                 
-                // Change permissions of the private key
+                // Ensure the correct permissions for the private key
                 sh '''
-                chmod 400 /var/lib/jenkins/workspace/es_pipeline/infra_key.pem
+                chmod 400 ~/.ssh/infra_key.pem
                 '''
+            }
+        }
 
+        stage('Run Ansible Playbook') {
+            steps {
                 // Run the Ansible playbook with the specified private key and inventory file
                 sh '''
-                 ansible-playbook -i ./roles/my_elasticsearch_role/aws_ec2.yaml \
-                ./roles/my_elasticsearch_role/playbook.yml 
-                # --private-key /var/lib/jenkins/workspace/es_pipeline/infra_key.pem 
+                ansible-playbook -i ./roles/my_elasticsearch_role/aws_ec2.yaml \
+                ./roles/my_elasticsearch_role/playbook.yml \
+                --private-key ~/.ssh/infra_key.pem
                 '''
             }
         }
