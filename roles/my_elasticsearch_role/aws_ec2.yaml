@@ -7,5 +7,5 @@ keyed_groups:
   - key: tags.Name
     prefix: tag
 host_key_checking: false
-hostnames:
-  - network-interface.addresses.association.public-ip  # Use the correct field for public IP
+#hostnames:
+ # - network-interface.addresses[0].association.public-ip  # Adjusted for list index
