@@ -16,14 +16,14 @@ pipeline {
             steps {
                 // Ensure the correct permissions for the private key
                 sh '''
-                chmod 400 ~/.ssh/all_key.pem
+                chmod 400 /var/lib/jenkins/.ssh/all_key.pem
                 '''
 
                 // Run the Ansible playbook with the specified private key and inventory file
                 sh '''
-                ansible-playbook -i ./aws_ec2.yaml \
-                ./playbook.yml \
-                --private-key ~/.ssh/all_key.pem
+                ansible-playbook -i ./roles/my_elasticsearch_role/aws_ec2.yaml \
+                ./roles/my_elasticsearch_role/playbook.yml \
+                --private-key /var/lib/jenkins/.ssh/all_key.pem
                 '''
             }
         }
