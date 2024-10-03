@@ -1,11 +1,10 @@
 ---
 - name: Install and configure Elasticsearch
   hosts: aws_ec2  
-  # Ensure this refers to the correct group in your dynamic inventory
   remote_user: jenkins
   become: true
   vars_files:
     - vars/main.yml
 
   roles:
-    - role: roles/my_elasticsearch_role
+    - my_elasticsearch_role
