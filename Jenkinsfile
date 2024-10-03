@@ -12,17 +12,17 @@ pipeline {
             }
         }
 
-        stage('Prepare Environment') {
-            steps {
-                // List files in the workspace to check if everything is in place
-                sh 'ls -al'
+        // stage('Prepare Environment') {
+        //     steps {
+        //         // List files in the workspace to check if everything is in place
+        //         sh 'ls -al'
                 
-                // Ensure the correct permissions for the private key
-                sh '''
-                chmod 400 ~/.ssh/all_key.pem
-                '''
-            }
-        }
+        //         // Ensure the correct permissions for the private key
+        //         sh '''
+        //         chmod 400 ~/.ssh/all_key.pem
+        //         '''
+        //     }
+        // }
 
         stage('Run Ansible Playbook') {
             steps {
