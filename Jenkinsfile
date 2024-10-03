@@ -19,7 +19,7 @@ pipeline {
                 
                 // Ensure the correct permissions for the private key
                 sh '''
-                chmod 400 ~/.ssh/infra_key.pem
+                chmod 400 ~/.ssh/all_key.pem
                 '''
             }
         }
