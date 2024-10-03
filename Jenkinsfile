@@ -12,24 +12,17 @@ pipeline {
             }
         }
 
-        // stage('Prepare Environment') {
-        //     steps {
-        //         // List files in the workspace to check if everything is in place
-        //         sh 'ls -al'
-                
-        //         // Ensure the correct permissions for the private key
-        //         sh '''
-        //         chmod 400 ~/.ssh/all_key.pem
-        //         '''
-        //     }
-        // }
-
         stage('Run Ansible Playbook') {
             steps {
+                // Ensure the correct permissions for the private key
+                sh '''
+                chmod 400 ~/.ssh/all_key.pem
+                '''
+
                 // Run the Ansible playbook with the specified private key and inventory file
                 sh '''
-                ansible-playbook -i ./roles/my_elasticsearch_role/aws_ec2.yaml \
-                ./roles/my_elasticsearch_role/playbook.yml \
+                ansible-playbook -i ./aws_ec2.yaml \
+                ./playbook.yml \
                 --private-key ~/.ssh/all_key.pem
                 '''
             }
