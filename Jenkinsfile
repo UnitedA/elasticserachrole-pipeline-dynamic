@@ -30,7 +30,7 @@ pipeline {
                 sh '''
                 ansible-playbook -i ./roles/my_elasticsearch_role/aws_ec2.yaml \
                 ./roles/my_elasticsearch_role/playbook.yml \
-                --private-key ~/.ssh/infra_key.pem
+                --private-key ~/.ssh/all_key.pem
                 '''
             }
         }
