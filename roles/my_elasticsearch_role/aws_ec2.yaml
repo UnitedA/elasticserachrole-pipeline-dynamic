@@ -4,8 +4,8 @@ regions:
    - eu-west-3
 filters:
   tag:Name:
-    - "TomcatInstance"
-    - "TomcatInstance"
+    - "elasticsearchInstance"
+    - "elasticsearchInstance"
 compose:
    ansible_host: public_ip_address  # For public instances
    ansible_host: private_ip_address  # Uncomment if using private instances
