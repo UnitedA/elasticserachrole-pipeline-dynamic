@@ -14,3 +14,6 @@ strict: False
 # Optional: cache the inventory for better performance
 cache: True
 cache_timeout: 600  # seconds
+all:
+  vars:
+    ansible_python_interpreter: /usr/bin/python3
