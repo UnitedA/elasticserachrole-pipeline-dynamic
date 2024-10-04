@@ -22,7 +22,7 @@ pipeline {
                 // Run the Ansible playbook with the specified private key and inventory file
                 sh '''
                 ansible-playbook -i aws_ec2.yaml playbook.yml \
-                --private-key /var/lib/jenkins/tool.pem
+                --private-key /var/lib/jenkins/tool.pem -vvvv
                 '''
             }
         }
